@@ -1,11 +1,13 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/A2A_SSH_Skill-Agent_to_Agent_over_SSH-000000?style=for-the-badge&logo=openssh&logoColor=white" alt="A2A SSH Skill" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/a2a-ssh-logo-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="docs/assets/a2a-ssh-logo.svg">
+    <img alt="A2A SSH Skill" src="docs/assets/a2a-ssh-logo.svg" width="480">
+  </picture>
 </p>
 
-<h1 align="center">A2A SSH Skill</h1>
-
 <p align="center">
-  <strong>Google A2A wants you to build an HTTP server.<br/>We just need your SSH key.</strong>
+  <strong>Google A2A wants you to build an HTTP server.<br/>We just need your SSH key. 🔑</strong>
 </p>
 
 <p align="center">
@@ -13,11 +15,12 @@
   <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white" alt="Python 3.10+" />
   <img src="https://img.shields.io/badge/Tests-6%2F6_Passing-brightgreen?logo=github-actions" alt="Tests: 6/6" />
   <img src="https://img.shields.io/badge/Dependencies-Zero-orange" alt="Zero Deps" />
-  <img src="https://img.shields.io/badge/Works_with-Claude_Code_%7C_Codex-black?logo=anthropic" alt="Claude Code | Codex" />
+  <img src="https://img.shields.io/badge/Works_with-Claude_Code_%7C_Codex-black" alt="Claude Code | Codex" />
 </p>
 
 <p align="center">
-  <b>No HTTP. No Agent Cards. No JSON-RPC. Just SSH.</b>
+  <b>No HTTP. No Agent Cards. No JSON-RPC. Just SSH.</b><br/>
+  <sub>Inspired by <a href="https://github.com/a2aproject/A2A">Google Agent2Agent (A2A) Protocol</a> · Built for builders who need it working today</sub>
 </p>
 
 ---
