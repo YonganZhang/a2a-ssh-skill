@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  <!-- Rounded square background -->
+  <rect width="128" height="128" rx="28" fill="url(#bg)"/>
+  <!-- Terminal bracket left > -->
+  <text x="18" y="78" fill="white" font-family="monospace" font-size="48" font-weight="bold" opacity="0.95">&gt;_</text>
+  <!-- SSH arrow -->
+  <line x1="52" y1="88" x2="100" y2="48" stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+  <polygon points="100,48 88,50 96,58" fill="white" opacity="0.7"/>
+  <!-- Terminal bracket right > -->
+  <text x="72" y="68" fill="white" font-family="monospace" font-size="40" font-weight="bold" opacity="0.95">&gt;_</text>
+  <!-- SSH label -->
+  <rect x="38" y="94" width="52" height="20" rx="4" fill="white" opacity="0.2"/>
+  <text x="64" y="109" text-anchor="middle" fill="white" font-family="system-ui,sans-serif" font-size="13" font-weight="700" letter-spacing="2">SSH</text>
+</svg>
