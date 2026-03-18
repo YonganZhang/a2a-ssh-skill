@@ -22,6 +22,10 @@
     <sub>Inspired by <a href="https://github.com/a2aproject/A2A">Google Agent2Agent (A2A) Protocol</a> · Built for builders who need it working today</sub>
   </p>
 
+  <p>
+    <a href="README.md">English</a> · <a href="README_CN.md"><b>中文</b></a>
+  </p>
+
 </div>
 
 <br/>
