@@ -1,371 +1,324 @@
 <div align="center">
-  <img src="docs/assets/logo.svg" width="112" alt="A2A SSH Skill Logo" style="max-width: 100%;" />
+
+  <img src="docs/assets/logo.svg" width="112" alt="A2A SSH Skill Logo" />
+
   <h1>A2A SSH Skill</h1>
-  <p><strong>Agent-to-Agent delegation over SSH. Zero dependencies. Works today.</strong></p>
+
+  <p>
+    <strong>Agent-to-Agent delegation over SSH.</strong><br/>
+    <strong>Zero dependencies. Works today.</strong>
+  </p>
+
+  <p>
+    <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT" /></a>
+    <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white" alt="Python" />
+    <img src="https://img.shields.io/badge/E2E_Tests-6%2F6_Passing-brightgreen" alt="Tests" />
+    <img src="https://img.shields.io/badge/Dependencies-Zero-orange" alt="Deps" />
+    <img src="https://img.shields.io/badge/Claude_Code-Compatible-black" alt="Claude" />
+    <img src="https://img.shields.io/badge/Codex-Compatible-black" alt="Codex" />
+  </p>
+
+  <p>
+    <sub>Inspired by <a href="https://github.com/a2aproject/A2A">Google Agent2Agent (A2A) Protocol</a> · Built for builders who need it working today</sub>
+  </p>
+
 </div>
 
-<p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License" /></a>
-  <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white" alt="Python 3.10+" />
-  <img src="https://img.shields.io/badge/E2E_Tests-6%2F6_Passing-brightgreen?logo=github-actions" alt="Tests: 6/6" />
-  <img src="https://img.shields.io/badge/Dependencies-Zero-orange" alt="Zero Deps" />
-  <img src="https://img.shields.io/badge/Claude_Code-Compatible-black" alt="Claude Code" />
-  <img src="https://img.shields.io/badge/Codex-Compatible-black" alt="Codex" />
-</p>
+<br/>
 
-<p align="center">
-  <sub>Inspired by <a href="https://github.com/a2aproject/A2A">Google Agent2Agent (A2A) Protocol</a> · Built for builders who need it working today</sub>
-</p>
+<div align="center">
 
----
-
-> 💬 **Tired of 100+ MCP tools burning tokens just to talk across machines?**
-> Tired of deploying HTTP servers, Agent Cards, and JSON-RPC endpoints before your agents can even say hello?
->
-> **A2A SSH Skill** is the answer. One script. Zero dependencies. Your AI agents start collaborating across machines in 5 minutes — over plain SSH.
->
+> **💬 Tired of 100+ MCP tools burning tokens just to talk across machines?**<br/>
 > **Google A2A wants you to build an HTTP server. We just need your SSH key. 🔑**
+
+</div>
+
+<br/>
 
 <div align="center">
 <table>
 <tr>
-<td align="center"><h3>💰 ~90% Less Tokens</h3><sub>No framework context, no MCP overhead.<br/>Only your prompt travels over the wire.</sub></td>
-<td align="center"><h3>⚡ 5 Min Setup</h3><sub>Clone, edit JSON, send.<br/>No servers. No SDKs.</sub></td>
-<td align="center"><h3>🔒 Zero Trust Surface</h3><sub>No HTTP endpoints exposed.<br/>SSH encryption by default.</sub></td>
+<td align="center" width="260">
+  <h3>💰 ~90% Less Tokens</h3>
+  <p>No framework context. No MCP overhead.<br/>Only your prompt travels over the wire.</p>
+</td>
+<td align="center" width="260">
+  <h3>⚡ 5 Min Setup</h3>
+  <p>Clone → edit JSON → send task.<br/>No servers. No SDKs. No <code>pip install</code>.</p>
+</td>
+<td align="center" width="260">
+  <h3>🔒 Zero Attack Surface</h3>
+  <p>No HTTP endpoints exposed.<br/>SSH encryption out of the box.</p>
+</td>
 </tr>
 </table>
 </div>
 
 ---
 
-## What is A2A SSH Skill?
+## 📖 What is A2A SSH Skill?
 
 **A2A SSH Skill** is a practical, zero-dependency Python tool for [Agent2Agent (A2A)](https://github.com/a2aproject/A2A)-style delegation over SSH.
 
-While Google A2A defines a protocol for how agents *should* talk (JSON-RPC, HTTP endpoints, Agent Cards), **A2A SSH Skill makes agents *actually work* across your machines right now** — using nothing but SSH, Python, and a CLI AI tool like [Claude Code](https://claude.ai/claude-code) or [Codex](https://openai.com/codex).
+Google A2A defines a protocol for how agents *should* talk (JSON-RPC, HTTP endpoints, Agent Cards). **A2A SSH Skill makes agents *actually work* across your machines right now** — using nothing but SSH, Python, and a CLI AI tool like [Claude Code](https://claude.ai/claude-code) or [Codex](https://openai.com/codex).
 
-**No HTTP server.** No broker. No message queue. No SDK. No `pip install`. If you can SSH into a machine, your AI agents can delegate work to it.
+> *Others are writing protocol specifications — your agents are already getting work done.*<br/>
+> *Others are deploying Agent Cards and webhook endpoints — your agents already finished the task.*<br/>
+> *Others spent a week on interoperability — you spent 5 minutes editing `agents.json`.*
 
-### The Pitch
+---
 
-```
-Others are writing protocol specifications.
-Your agents are already getting work done.
+## 🔄 Why A2A SSH Skill?
 
-Others are deploying Agent Cards and webhook endpoints.
-Your agents already finished the task and sent back the results.
+A2A SSH Skill and Google A2A are **complementary, not competing**:
 
-Others spent a week setting up interoperability.
-You spent 5 minutes editing agents.json.
-```
-
-## Why A2A SSH Skill? (vs Google A2A)
-
-A2A SSH Skill and Google A2A solve **different problems** at **different layers**. They're complementary, not competing:
-
-- **Google A2A** answers: *"How should agents discover and talk to each other across the internet?"*
-- **A2A SSH Skill** answers: *"How do I make my machines work together as an AI team right now?"*
+- **Google A2A** → *"How should agents discover each other across the internet?"*
+- **A2A SSH Skill** → *"How do I make my machines work together as an AI team right now?"*
 
 <table>
-<tr><th width="200"></th><th width="280">🔀 A2A SSH Skill</th><th width="280">🌐 Google A2A Protocol</th></tr>
-<tr><td><b>What it is</b></td><td>A ready-to-use delegation tool</td><td>An interoperability protocol specification</td></tr>
-<tr><td><b>Setup time</b></td><td>⚡ <b>5 minutes</b> (clone + edit JSON)</td><td>Hours to days (implement protocol endpoints)</td></tr>
-<tr><td><b>Dependencies</b></td><td>Python standard library + SSH</td><td>HTTP server + JSON-RPC + language SDK</td></tr>
-<tr><td><b>What you need</b></td><td>SSH access to your machines</td><td>Agent Cards, HTTP endpoints, webhooks</td></tr>
+<tr>
+  <th width="180"></th>
+  <th width="300">🔀 A2A SSH Skill</th>
+  <th width="300">🌐 Google A2A Protocol</th>
+</tr>
+<tr><td><b>What it is</b></td><td>Ready-to-use delegation tool</td><td>Interoperability protocol spec</td></tr>
+<tr><td><b>Setup time</b></td><td>⚡ 5 minutes</td><td>Hours to days</td></tr>
+<tr><td><b>Dependencies</b></td><td>Python stdlib + SSH</td><td>HTTP server + JSON-RPC + SDK</td></tr>
+<tr><td><b>Infrastructure</b></td><td>Your existing SSH keys</td><td>Agent Cards + HTTP endpoints + webhooks</td></tr>
 <tr><td><b>Transport</b></td><td>SSH (encrypted by default)</td><td>HTTP/HTTPS</td></tr>
-<tr><td><b>Discovery</b></td><td>Simple <code>agents.json</code> config file</td><td>Agent Card metadata standard</td></tr>
-<tr><td><b>Cross-machine</b></td><td>✅ Native design goal</td><td>Possible, but you build the infrastructure</td></tr>
-<tr><td><b>Task artifacts</b></td><td>✅ Built-in (<code>reply.md</code>, <code>log.md</code>, <code>output/</code>)</td><td>Not provided by the protocol</td></tr>
-<tr><td><b>Failure recovery</b></td><td>✅ Timeout cap, recursion guard, process-group kill, zombie cleanup</td><td>Up to the implementer</td></tr>
-<tr><td><b>Token efficiency</b></td><td>✅ Only prompt text transmitted, no context</td><td>Depends on implementation</td></tr>
-<tr><td><b>Explainability</b></td><td>✅ Full <code>log.md</code> with every step traced</td><td>Depends on implementation</td></tr>
-<tr><td><b>Best for</b></td><td><b>2-5 machines that need to get work done today</b></td><td>Cross-vendor agent ecosystem interoperability</td></tr>
+<tr><td><b>Discovery</b></td><td><code>agents.json</code></td><td>Agent Card metadata</td></tr>
+<tr><td><b>Cross-machine</b></td><td>✅ Native design goal</td><td>Possible, you build the infra</td></tr>
+<tr><td><b>Task artifacts</b></td><td>✅ Built-in files</td><td>Not provided</td></tr>
+<tr><td><b>Failure recovery</b></td><td>✅ Timeout, recursion guard, zombie cleanup</td><td>Up to implementer</td></tr>
+<tr><td><b>Token efficiency</b></td><td>✅ Prompt-only, ~90% less</td><td>Depends on impl</td></tr>
+<tr><td><b>Explainability</b></td><td>✅ Full <code>log.md</code> trace</td><td>Depends on impl</td></tr>
+<tr><td><b>Best for</b></td><td><b>Getting work done today</b></td><td>Cross-vendor ecosystem interop</td></tr>
 </table>
 
-> **TL;DR**: If you need your laptop, your GPU server, and your Linux box to work as an AI team — **A2A SSH Skill gets you there in 5 minutes**. If you need to build a public agent marketplace — use Google A2A.
+> **TL;DR** — Need your machines working as an AI team? **A2A SSH Skill, 5 minutes.** Need a public agent marketplace? Use Google A2A.
 
-## Demo
+---
+
+## 🎬 Demo
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                                                                 │
-│  [Laptop] You type one command:                                 │
-│                                                                 │
-│  $ python agent.py send gpu-server \                            │
-│      --cwd "/home/user/ml-project" \                            │
-│      --text "Run the failing tests and fix them" \              │
-│      --mode write --wait                                        │
-│                                                                 │
-│  ─── What happens behind the scenes ───                         │
-│                                                                 │
-│  1. agent.py creates job directory with prompt.md               │
-│  2. Uploads via SCP to gpu-server                               │
-│  3. Launches runner.py on remote machine via SSH                │
-│  4. Remote Claude reads the code, runs tests, fixes bugs        │
-│  5. Writes reply.md + log.md with results                       │
-│  6. Results fetched back to your laptop                         │
-│                                                                 │
-│  [Laptop] ✅ Result:                                            │
-│                                                                 │
-│  [OK]                                                           │
-│  Fixed 3 failing tests in src/utils.py:                         │
-│  - test_parse_config: added missing default value               │
-│  - test_validate_input: boundary check was off by one           │
-│  - test_export_data: file path used wrong separator on Linux    │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────────┐
+│                                                               │
+│  $ python agent.py send gpu-server \                          │
+│      --cwd "/home/user/ml-project" \                          │
+│      --text "Run the failing tests and fix them" \            │
+│      --mode write --wait                                      │
+│                                                               │
+│  ── Behind the scenes ──────────────────────────────────────  │
+│                                                               │
+│  1. Creates job dir → prompt.md + meta.json + runner.py       │
+│  2. Uploads to gpu-server via SCP                             │
+│  3. Launches runner.py via SSH                                │
+│  4. Remote AI reads code, runs tests, fixes bugs              │
+│  5. Writes reply.md + log.md                                  │
+│  6. Results fetched back                                      │
+│                                                               │
+│  ✅ [OK]                                                      │
+│  Fixed 3 failing tests in src/utils.py:                       │
+│  - test_parse_config: added missing default value             │
+│  - test_validate_input: boundary check was off by one         │
+│  - test_export_data: file path used wrong separator           │
+│                                                               │
+└───────────────────────────────────────────────────────────────┘
 ```
 
-## Quick Start
+---
 
-### Prerequisites
+## 🚀 Quick Start
 
-- **Python 3.10+** on all machines (already installed on most systems)
-- **SSH access** between your machines (key-based auth recommended)
-- **A CLI AI tool** on each remote machine ([Claude Code](https://claude.ai/claude-code), [Codex](https://openai.com/codex), or any tool with `-p` flag)
-
-### Install in 30 Seconds
+**Prerequisites:** Python 3.10+ · SSH access · A CLI AI tool on remote machine
 
 ```bash
-# 1. Clone
+# 1. Clone (no pip install needed!)
 git clone https://github.com/YonganZhang/a2a-ssh-skill && cd a2a-ssh-skill
 
-# 2. Configure your nodes (no pip install needed!)
-cp agents.example.json agents.json
-# Edit agents.json: set your SSH hosts, claude_path, python_path
+# 2. Configure
+cp agents.example.json agents.json    # Edit: SSH hosts, claude_path, python_path
 
-# 3. Verify SSH works
-ssh my-server "echo ok"
-
-# 4. Send your first task!
+# 3. Send your first task
 python agent.py send my-server \
   --cwd "/home/user" \
-  --text "What Python version is installed? Check disk usage too." \
+  --text "Check Python version and disk usage" \
   --mode read --wait
-
-# That's it. No servers to start. No endpoints to deploy. No tokens wasted on setup.
 ```
 
-### Use as a Claude Code Skill
-
-A2A SSH Skill can also be installed directly as a [Claude Code skill](https://docs.anthropic.com/en/docs/claude-code) — just copy it to your skills directory and Claude will automatically use it when you ask it to delegate tasks to remote machines:
+**As a Claude Code Skill** — copy to `~/.claude/skills/` and Claude auto-discovers it:
 
 ```bash
 cp -r a2a-ssh-skill ~/.claude/skills/agent-task-delegate
 ```
 
-## Use Cases
+---
 
-A2A SSH Skill is not limited to any specific setup. Here's what people use it for:
+## 💡 Use Cases
 
-| Scenario | How |
-|---|---|
-| 🧪 **Remote testing** | "Run the test suite on the CI server and fix any failures" |
-| 🔧 **Remote debugging** | "Check why the API is returning 500 errors on production" |
-| 🤖 **GPU offloading** | "Train this model on the GPU server and report the metrics" |
-| 📊 **Cross-machine inspection** | "Compare the configs between staging and production" |
-| 🏗️ **Multi-node deployment** | "Update the service on server A, then verify it from server B" |
-| 🐛 **Log analysis** | "Search the last 1000 lines of nginx logs for timeout errors" |
-| 📦 **Build delegation** | "Compile the project on the Linux box, it's faster there" |
-| 🔍 **Security audit** | "Check all open ports and running services on the server" |
+| | Scenario | Example Prompt |
+|---|---|---|
+| 🧪 | **Remote testing** | *"Run the test suite on the server and fix any failures"* |
+| 🔧 | **Remote debugging** | *"Check why the API returns 500 errors"* |
+| 🤖 | **GPU offloading** | *"Train this model on the GPU server, report metrics"* |
+| 📊 | **Cross-machine inspection** | *"Compare configs between staging and production"* |
+| 🏗️ | **Multi-node deployment** | *"Update the service on server A, verify from server B"* |
+| 🐛 | **Log analysis** | *"Search nginx logs for timeout errors"* |
+| 📦 | **Build delegation** | *"Compile on the Linux box, it's faster there"* |
+| 🔍 | **Security audit** | *"Check open ports and running services"* |
 
-## Features
+---
+
+## ✨ Features
 
 | | Feature | Description |
 |---|---|---|
-| 🪶 | **Zero Dependencies** | Python standard library only. No `pip install`. No `npm`. No SDKs. Just copy and run. |
-| 🖥️ | **Cross-Platform** | Windows, Linux, WSL, macOS. One unified Python runner handles all platforms identically. |
-| ⚡ | **Fast Path** | Read-only tasks on Linux bypass the runner entirely — stream directly via SSH stdout for minimal latency. |
-| 🛡️ | **Battle-Tested Reliability** | Recursion guard (`AGENT_DELEGATE_DEPTH`), timeout cap (1800s max), process-group kill (`os.setsid` + `os.killpg`), atomic file writes via temp+rename. |
-| 📄 | **Full Observability** | Every job produces `prompt.md` (what was asked), `reply.md` (what was answered), `log.md` (how it was executed). Human-readable. `grep`-able. `diff`-able. |
-| 🔀 | **Flexible Routing** | Direct SSH, relay through an intermediate node (A→B→C), or shared filesystem (Windows host + its WSL). |
-| 🤖 | **AI-Agnostic** | Works with any CLI AI that accepts a `-p` prompt flag: Claude Code, Codex, Aider, and more. |
-| 🔒 | **Anti-Loop Protection** | Environment variable `AGENT_DELEGATE_DEPTH` prevents A→B→A→B infinite delegation loops that burn tokens endlessly. |
-| 💰 | **Token Efficient** | Only the prompt text is transmitted — no model context, no conversation history, no framework overhead. |
+| 🪶 | **Zero Dependencies** | Python stdlib only. No `pip install`. Just copy and run. |
+| 🖥️ | **Cross-Platform** | Windows · Linux · WSL · macOS. One unified Python runner. |
+| ⚡ | **Fast Path** | Read-only Linux tasks stream via SSH stdout — zero runner overhead. |
+| 🛡️ | **Battle-Tested** | Recursion guard · timeout cap · process-group kill · atomic writes. |
+| 📄 | **Observable** | `prompt.md` · `reply.md` · `log.md` — human-readable, grep-able, diff-able. |
+| 🔀 | **Flexible Routing** | Direct SSH · relay (A→B→C) · shared filesystem. |
+| 🤖 | **AI-Agnostic** | Claude Code, Codex, Aider — any CLI AI with `-p` flag. |
+| 🔒 | **Anti-Loop** | `AGENT_DELEGATE_DEPTH` blocks infinite delegation loops. |
+| 💰 | **Token Efficient** | Prompt-only transmission. No context, no history, no overhead. |
 
-## Architecture
+---
+
+## 🏗️ Architecture
 
 ```
-┌──────────────────┐           SSH            ┌──────────────────┐
-│   Node A          │                          │   Node B          │
-│   (Your Laptop)   │  ┌─────────────────┐    │   (GPU Server)    │
-│                    │  │  1. Upload job  │    │                    │
-│   agent.py         │──│     via SCP     │──► │   runner.py        │
-│   (dispatcher)     │  └─────────────────┘    │   (executor)       │
-│                    │                          │                    │
-│   Creates:         │  ┌─────────────────┐    │   Invokes:         │
-│   ├─ prompt.md     │  │  2. Launch      │    │   Claude CLI       │
-│   ├─ meta.json     │──│     via SSH     │──► │   via stdin pipe   │
-│   └─ runner.py     │  └─────────────────┘    │                    │
-│                    │                          │   Produces:        │
-│   Receives:        │  ┌─────────────────┐    │   ├─ reply.md      │
-│   ├─ reply.md      │◄─│  3. Fetch       │────│   ├─ log.md        │
-│   └─ log.md        │  │     via SCP     │    │   └─ output/       │
-└──────────────────┘  └─────────────────┘    └──────────────────┘
+  ┌───────────────┐                         ┌───────────────┐
+  │   Node A       │          SSH            │   Node B       │
+  │   (Dispatcher) │                         │   (Executor)   │
+  │                │  1. Upload job (SCP)     │                │
+  │   agent.py     │ ─────────────────────►  │   runner.py    │
+  │                │                         │                │
+  │   Creates:     │  2. Launch runner (SSH)  │   Invokes:     │
+  │   · prompt.md  │ ─────────────────────►  │   AI CLI tool  │
+  │   · meta.json  │                         │   via stdin     │
+  │   · runner.py  │  3. Fetch results (SCP) │                │
+  │                │ ◄─────────────────────  │   Produces:    │
+  │   Receives:    │                         │   · reply.md   │
+  │   · reply.md   │                         │   · log.md     │
+  │   · log.md     │                         │   · output/    │
+  └───────────────┘                         └───────────────┘
 ```
 
 ### Execution Paths
 
-A2A SSH Skill automatically chooses the optimal execution path:
+| Target | Mode | Wait | Path | Speed |
+|:-------|:-----|:-----|:-----|:------|
+| Linux | read | yes | **Direct SSH stdout** | ⚡ Fastest |
+| Linux | read | no | Python runner | Fast |
+| Linux | write | * | Python runner | Fast |
+| Windows | * | * | Python runner | Fast |
 
-| Target | Mode | Wait | Path | Why |
-|--------|------|------|------|-----|
-| Linux | read | yes | **Direct SSH stdout** ⚡ | Fastest — no runner overhead, just `ssh host "claude -p ..."` |
-| Linux | read | no | Python runner | Background execution needs job directory protocol |
-| Linux | write | * | Python runner | Write tasks need full tool access via runner |
-| Windows | * | * | Python runner | stdin pipe ensures reliable prompt delivery on Windows |
+### Topology
 
-### Scale to Any Topology
-
-A2A SSH Skill works with **any number of nodes** — from two machines to a fleet. Here are common setups:
-
-**Two-Node** — The simplest: your laptop delegates to a remote server.
-```
-💻 Laptop ──── SSH ────► 🖥️ Server
-```
-
-**Three-Node with Relay** — A Windows server relays to its WSL Linux environment:
-```
-💻 Laptop ──── SSH ────► 🖥️ Windows Server ──── WSL ────► 🐧 Linux
-```
-
-**Fan-Out** — One coordinator delegates to multiple workers in parallel:
-```
-                         ┌── SSH ──► 🖥️ Server A (Build)
-💻 Coordinator ──────────┼── SSH ──► 🖥️ Server B (Test)
-                         └── SSH ──► 🐧 GPU Box  (Train)
-```
-
-Just add entries to `agents.json`. Each node auto-detects its identity via hostname matching. Any node can be a sender, receiver, or both.
-
-## How It Works
-
-### The Job Protocol
-
-Every delegation creates a **job directory** — a self-contained folder with everything the remote agent needs:
+A2A SSH Skill works with **any number of nodes** in any topology:
 
 ```
-jobs/20260319-014500-gpu-server-fix-tests-a1b2c3/
-├── prompt.md      # 📝 Task instructions (what to do)
-├── meta.json      # ⚙️ Metadata (target, mode, timeout, paths)
-├── runner.py      # 🏃 Self-contained executor (bundled with every job)
-├── reply.md       # ✅ Final result: [OK] or [FAILED] + details
-├── log.md         # 📋 Execution trace: timestamps, errors, stderr
-├── input/         # 📁 Input files (optional, for file-heavy tasks)
-└── output/        # 📁 Generated files (optional, AI-produced artifacts)
+Two-Node            Three-Node (Relay)              Fan-Out
+                                                     ┌─► 🖥️ Server A
+💻 ── SSH ──► 🖥️    💻 ── SSH ──► 🖥️ ── WSL ──► 🐧    💻 ──┼─► 🖥️ Server B
+                                                     └─► 🐧 GPU Box
 ```
 
-**Everything is a plain text file.** No database. No message queue. No binary formats.
-- Debug with `cat reply.md`
-- Monitor with `watch -n5 ls jobs/`
-- Archive with `tar`
-- Search with `grep -r "FAILED" jobs/`
+Add nodes by editing `agents.json`. Each node auto-detects its identity. Any node can be sender, receiver, or both.
 
-### Step-by-Step Flow
+---
 
-1. **You run** `python agent.py send <target> --text "do something" --wait`
-2. **agent.py** auto-detects your node identity (via hostname matching)
-3. **agent.py** creates a job directory with `prompt.md`, `meta.json`, and a bundled `runner.py`
-4. **agent.py** uploads the job directory to the remote machine via SCP
-5. **agent.py** launches `runner.py` on the remote node via SSH
-6. **runner.py** reads the prompt, pipes it to Claude CLI via stdin
-7. **Claude** executes the task using its tools (Read, Write, Bash, etc.)
-8. **Claude** writes `reply.md` (result) and `log.md` (execution trace)
-9. **agent.py** fetches the results back via SCP and displays them
+## ⚙️ How It Works
 
-### Safety Mechanisms
+### Job Protocol
 
-| Mechanism | What It Prevents |
-|-----------|-----------------|
-| `AGENT_DELEGATE_DEPTH` env var | Infinite A→B→A→B delegation loops (token drain) |
-| `MAX_TIMEOUT_SEC = 1800` | Runaway processes (both dispatch-side and runner-side enforce) |
-| `os.setsid` + `os.killpg` | Zombie processes after SSH disconnect (Linux) |
-| Atomic file writes | Half-written `reply.md` being read as complete |
-| Preflight checks | Verifying remote cwd, Claude CLI, system health before starting |
-| D-state monitoring | Detecting unhealthy WSL instances (filesystem I/O stalls) |
+Every delegation creates a self-contained **job directory**:
 
-## Token Efficiency: Why ~90% Less
+```
+jobs/<job-id>/
+├── prompt.md      📝 Task instructions
+├── meta.json      ⚙️ Metadata (target, mode, timeout)
+├── runner.py      🏃 Bundled executor
+├── reply.md       ✅ Result: [OK] or [FAILED]
+├── log.md         📋 Execution trace
+├── input/         📁 Input files (optional)
+└── output/        📁 Generated artifacts (optional)
+```
 
-Traditional multi-agent approaches waste tokens in several ways. A2A SSH Skill eliminates all of them:
+**Everything is plain text.** Debug with `cat`. Monitor with `watch`. Archive with `tar`. Search with `grep`.
 
-| Token Waste Source | Traditional Approach | A2A SSH Skill |
-|---|---|---|
-| **Framework context** | Agent frameworks inject system prompts, tool schemas, conversation history (~2000-5000 tokens per call) | Only your task prompt is sent (~100-500 tokens) |
-| **MCP tool overhead** | 100+ MCP tool definitions loaded into context (~3000-8000 tokens) | Zero MCP tools — AI uses its native tools on the remote machine |
-| **Retry waste** | False retries on transient errors re-send entire context | Precise retry logic (stderr-only matching) avoids false triggers |
-| **Loop waste** | No recursion protection → A→B→A burns infinite tokens | `AGENT_DELEGATE_DEPTH` blocks loops at first recursion |
-| **Discovery overhead** | Protocol handshakes, Agent Card exchanges | Zero — `agents.json` is read locally, nothing sent to AI |
+### Flow
 
-**Example**: To check disk usage on a remote server:
-- **With MCP tools**: ~5000 tokens (tool schema loading) + ~500 tokens (prompt) = **~5500 tokens**
-- **With A2A SSH Skill**: ~500 tokens (just the prompt) = **~500 tokens** → **~90% reduction**
+```
+You type a command
+  └─► agent.py detects your node, creates job dir
+        └─► SCP uploads to remote machine
+              └─► SSH launches runner.py
+                    └─► runner.py pipes prompt to AI via stdin
+                          └─► AI executes task, writes reply.md + log.md
+                                └─► agent.py fetches results via SCP
+                                      └─► You see the result
+```
 
-The savings compound when you're delegating tasks throughout the day.
+### Safety
 
-## End-to-End Test Results
+| Mechanism | Prevents |
+|:----------|:---------|
+| `AGENT_DELEGATE_DEPTH` | Infinite A→B→A loops (token drain) |
+| `MAX_TIMEOUT_SEC = 1800` | Runaway processes |
+| `os.setsid` + `os.killpg` | Zombie processes on SSH disconnect |
+| Atomic file writes | Reading half-written results |
+| Preflight checks | Launching on bad remote state |
+| D-state monitoring | Stalled WSL instances |
 
-We take reliability seriously. A2A SSH Skill has been battle-tested on a real multi-node production setup across Windows and Linux machines.
+---
 
-### Test Suite
+## 💰 Token Efficiency: ~90% Less
 
-Every test validates a different execution path and safety mechanism:
+| Waste Source | Traditional | A2A SSH Skill |
+|:-------------|:-----------|:--------------|
+| Framework context injection | ~2000-5000 tokens/call | **0** (no framework) |
+| MCP tool definitions | ~3000-8000 tokens | **0** (native tools on remote) |
+| False retries | Re-sends entire context | Stderr-only matching |
+| Delegation loops | Infinite token burn | Blocked at first recursion |
+| Discovery handshakes | Agent Cards exchange | **0** (local `agents.json`) |
 
-#### ✅ Test 1: Linux Read + Wait (Direct SSH Stdout)
-**What it tests**: The fastest execution path — SSH directly streams Claude's response without any runner overhead. This is the path used for quick checks and inspections.
-**How it works**: Sends a simple read-only task to the Linux node, verifies that the response comes back correctly via SSH stdout capture.
-**Why it matters**: This is the most common operation. If this path fails, day-to-day delegation breaks.
+**Concrete example** — checking disk usage on a remote server:
 
-#### ✅ Test 2: Linux Write + Wait (Python Runner)
-**What it tests**: The full runner pipeline on Linux — SCP upload, remote runner.py launch, Claude execution with write permissions, reply.md creation, and result fetch.
-**How it works**: Sends a write-mode task that creates a file on the remote machine, verifies the file was created and reply.md confirms success.
-**Why it matters**: Write tasks are the core value proposition — actually modifying code, fixing bugs, creating files on remote machines.
+| Approach | Tokens Used |
+|:---------|:-----------|
+| MCP tools (tool schemas + prompt) | ~5,500 |
+| **A2A SSH Skill** (prompt only) | **~500** |
+| **Savings** | **~90%** |
 
-#### ✅ Test 3: Timeout Cap Enforcement
-**What it tests**: The safety mechanism that prevents runaway processes. When `--timeout-sec 99999` is passed, it should be silently clamped to 1800 seconds (30 minutes).
-**How it works**: Sends a task with an absurdly high timeout, verifies the task completes normally (proving the clamp worked — if it actually waited 99999 seconds, the test would timeout).
-**Why it matters**: Without this cap, a misconfigured or malicious timeout could let a remote Claude process run indefinitely, consuming API tokens for hours.
+---
 
-#### ✅ Test 4: Windows Read + Wait (Python Runner)
-**What it tests**: Cross-platform compatibility — the Python runner executing on Windows. This covers the stdin pipe mechanism that was specifically designed to handle PowerShell + `.cmd` file argument passing issues.
-**How it works**: Sends a read task to the Windows server, verifies reply.md is produced correctly.
-**Why it matters**: Windows has fundamentally different process management (no `setsid`, different pipe behavior, `.cmd` batch wrapper for Claude). This test proves the unified Python runner handles all of it.
+## 🧪 End-to-End Test Results
 
-#### ✅ Test 5: Recursive Delegation Blocked
-**What it tests**: The anti-loop protection. When a delegated agent is asked to re-delegate the task to another node, it must refuse — otherwise A→B→A→B loops would burn tokens infinitely.
-**How it works**: Sends a task that explicitly asks the remote agent to "use agent.py to forward this task to another node." Verifies the remote agent refuses, citing the constraint.
-**Why it matters**: Without this guard, a single misworded prompt could cause infinite delegation loops, each consuming a full Claude API call. This is the "token drain prevention" mechanism.
+<table>
+<tr><td>✅</td><td><b>Test 1: Linux Read + Wait</b></td><td>Direct SSH stdout path — the fastest, most common operation. Verifies response streams correctly without runner overhead.</td></tr>
+<tr><td>✅</td><td><b>Test 2: Linux Write + Wait</b></td><td>Full runner pipeline — SCP upload, remote launch, Claude execution with write permissions, reply.md creation, result fetch.</td></tr>
+<tr><td>✅</td><td><b>Test 3: Timeout Cap</b></td><td>Passes <code>--timeout-sec 99999</code>, verifies it's silently clamped to 1800s. Prevents runaway processes consuming tokens for hours.</td></tr>
+<tr><td>✅</td><td><b>Test 4: Windows Read + Wait</b></td><td>Cross-platform — Python runner on Windows via stdin pipe. Proves the unified runner handles Windows process management correctly.</td></tr>
+<tr><td>✅</td><td><b>Test 5: Recursion Blocked</b></td><td>Asks delegated agent to re-delegate. It refuses — preventing A→B→A infinite loops that would burn tokens endlessly.</td></tr>
+<tr><td>✅</td><td><b>Test 6: No False Retry</b></td><td>Output containing "overloaded" doesn't trigger retry. Only stderr errors do. Prevents wasting tokens on spurious retries.</td></tr>
+</table>
 
-#### ✅ Test 6: No False Retry on stdout Content
-**What it tests**: The retry logic's precision. The retry mechanism checks for API errors like "overloaded" — but only in stderr, not stdout. If a task's *output* contains the word "overloaded" (e.g., "the server was overloaded yesterday"), it should NOT trigger a retry.
-**How it works**: Sends a task whose output naturally contains the word "overloaded", verifies it completes in one attempt without spurious retries.
-**Why it matters**: False retries waste tokens and time. Previous versions checked both stdout and stderr, causing legitimate outputs to be retried 3 times unnecessarily.
-
-### Our Test Environment
-
-These tests were validated on a real three-node setup as an example:
-- **Node A** (Coordinator): Windows 11 laptop
-- **Node B** (Windows target): Windows Server with GPU
-- **Node C** (Linux target): Ubuntu 24.04 running inside WSL2 on Node B
-
-A2A SSH Skill supports **any combination** of Windows, Linux, and macOS nodes connected via SSH.
-
-### Running the Tests
+**Test environment:** Windows laptop ↔ Windows Server ↔ Ubuntu Linux — but A2A SSH Skill supports **any OS combination** over SSH.
 
 ```bash
-# Run all tests against your target node
+# Run tests yourself
 ./tests/e2e-test.sh my-server
-
-# Or run individual tests manually
-python agent.py send my-server --cwd "/" --mode read --wait --text 'echo "hello"'
 ```
 
-## Configuration
+---
 
-### `agents.json` — Your Agent Network
+## 📝 Configuration
 
 ```json
 {
-  "protocol_version": 2,
   "agents": {
     "my-laptop": {
       "hostname_patterns": ["MY-LAPTOP-*"],
@@ -387,109 +340,115 @@ python agent.py send my-server --cwd "/" --mode read --wait --text 'echo "hello"
 }
 ```
 
+<details>
+<summary><b>📋 Full field reference</b></summary>
+<br/>
+
 | Field | Required | Description |
-|-------|----------|-------------|
-| `hostname_patterns` | Yes | Glob patterns to auto-detect which node this is (matched against `socket.gethostname()`) |
-| `platform` | Yes | `"windows"` or `"linux"` — determines path normalization and process management |
-| `claude_path` | Yes | Full path to the AI CLI executable on this node |
-| `python_path` | Yes | Python interpreter for running the job runner |
-| `job_root` | Yes | Directory where job folders are created |
-| `ssh_from` | Yes | Map of `{source_agent: ssh_host_alias}`. `null` = same-machine access (WSL) |
-| `exchange_root` | No | Root directory for the exchange filesystem |
-| `relay_via` | No | Fallback relay node when direct SSH fails |
-| `wsl_distro` | No | WSL distribution name (for Windows→WSL routing) |
-| `capabilities` | No | Tags describing what this node can do |
+|:------|:---------|:-----------|
+| `hostname_patterns` | Yes | Glob patterns for auto-detection (`socket.gethostname()`) |
+| `platform` | Yes | `"windows"` or `"linux"` |
+| `claude_path` | Yes | Path to AI CLI executable |
+| `python_path` | Yes | Python interpreter for runner |
+| `job_root` | Yes | Job directory location |
+| `ssh_from` | Yes | `{source: ssh_alias}` map. `null` = same machine |
+| `exchange_root` | No | Exchange filesystem root |
+| `relay_via` | No | Fallback relay node |
+| `wsl_distro` | No | WSL distribution name |
+| `capabilities` | No | Node capability tags |
 
-See [agents.example.json](agents.example.json) for a fully commented template, and [examples/](examples/) for ready-to-use two-node and three-node setups.
+</details>
 
-## Commands
+See [agents.example.json](agents.example.json) for a commented template · [examples/](examples/) for ready-to-use setups.
+
+---
+
+## 📌 Commands
 
 ```bash
-# Send a task
+# Delegate a task
 python agent.py send <target> --cwd <path> --text "task" --mode read|write [--wait] [--timeout-sec N]
 
-# Check job status
+# Check status
 python agent.py status <job-id> [--detail]
 
-# Clean up old completed jobs
+# Clean up old jobs
 python agent.py cleanup [--days 7]
 ```
 
-## Roadmap
+---
 
-- [ ] 📦 **Standalone CLI** — `pip install a2a-ssh-skill` for global installation
-- [ ] 🤖 **More AI CLI adapters** — Codex, Gemini CLI, Aider, Ollama integration guides
-- [ ] 📊 **Web dashboard** — Real-time job monitoring and history
-- [ ] 🌐 **A2A protocol bridge** — Optional Google A2A compatibility layer
-- [ ] 🔄 **Job chaining** — Automatic multi-step workflows (A→B→C)
-- [ ] 📱 **Notification hooks** — Slack/Telegram alerts on job completion
+## 🗺️ Roadmap
 
-### Design Principles We'll Never Compromise
+| Status | Feature |
+|:------:|:--------|
+| 📦 | **Standalone CLI** — `pip install a2a-ssh-skill` |
+| 🤖 | **More AI adapters** — Codex, Gemini CLI, Aider, Ollama |
+| 📊 | **Web dashboard** — real-time job monitoring |
+| 🌐 | **A2A bridge** — optional Google A2A compatibility |
+| 🔄 | **Job chaining** — multi-step workflows (A→B→C) |
+| 📱 | **Notifications** — Slack/Telegram on completion |
 
-| Principle | How We Achieve It |
-|-----------|-------------------|
-| 💰 **Low token consumption** | Only prompt text is transmitted — no model context, no conversation history, no framework overhead |
-| 🎯 **High accuracy** | Task results delivered as structured files (`reply.md`), not chat-style fuzzy output |
-| 🔍 **Full explainability** | Every job has complete `log.md` with execution trace, timestamps, exit codes, and stderr capture |
-| 🪶 **Zero bloat** | No dependencies today, no dependencies tomorrow. Python stdlib is enough. |
+### Design Principles
 
-## FAQ
+| | Principle | How |
+|---|---|---|
+| 💰 | **Low token consumption** | Prompt-only transmission — no context, no history |
+| 🎯 | **High accuracy** | File-based results (`reply.md`), not chat-style output |
+| 🔍 | **Full explainability** | Complete `log.md` with timestamps and exit codes |
+| 🪶 | **Zero bloat** | No dependencies today. No dependencies tomorrow. |
+
+---
+
+## ❓ FAQ
 
 <details>
 <summary><b>💡 How is this different from Google A2A?</b></summary>
 <br/>
-Google A2A is a <b>protocol specification</b> for agent interoperability — like HTTP for agents. It defines how agents should discover each other (Agent Cards), communicate (JSON-RPC), and exchange tasks.
-
-A2A SSH Skill is a <b>practical tool</b> that makes agents delegate work right now, using SSH. No protocol endpoints to implement, no Agent Cards to publish.
-
-Think of it as: A2A is the spec for the future. A2A SSH Skill is the tool for today. They're complementary — you could use A2A for discovery and A2A SSH Skill for execution.
+Google A2A is a <b>protocol spec</b> (like HTTP for agents). A2A SSH Skill is a <b>practical tool</b> that works over SSH right now. They're complementary — A2A for discovery, A2A SSH Skill for execution.
 </details>
 
 <details>
-<summary><b>🤖 Does it only work with Claude Code?</b></summary>
+<summary><b>🤖 Does it only work with Claude?</b></summary>
 <br/>
-No! A2A SSH Skill works with <b>any CLI AI tool</b> that accepts a <code>-p</code> (prompt) flag and can use file tools (Read, Write, Bash). This includes Claude Code, OpenAI Codex, Aider, and potentially others.
-
-The <code>claude_path</code> in your config can point to any compatible CLI binary.
+No. Any CLI AI with a <code>-p</code> flag works: Claude Code, Codex, Aider, etc. Set <code>claude_path</code> in config to your tool's binary.
 </details>
 
 <details>
 <summary><b>☁️ Do I need cloud services?</b></summary>
 <br/>
-No. A2A SSH Skill runs entirely over SSH between your own machines. No cloud APIs (beyond the AI model API itself), no SaaS platforms, no third-party services. Your prompts and task results stay on your machines.
+No. Everything runs over SSH between your own machines. Your prompts and results stay on your hardware.
 </details>
 
 <details>
-<summary><b>🔄 How is this different from just SSH-ing and running commands?</b></summary>
+<summary><b>🔄 How is this better than raw SSH?</b></summary>
 <br/>
-A2A SSH Skill adds structured task delivery (<code>prompt.md</code>), result collection (<code>reply.md</code>), execution logging (<code>log.md</code>), automatic routing, timeout protection, recursion guards, and cross-platform compatibility.
-
-It's the difference between raw TCP sockets and HTTP — same transport, much better protocol.
+A2A SSH Skill adds: structured task delivery, result collection, execution logging, auto-routing, timeout protection, recursion guards, and cross-platform compatibility. Same transport, much better protocol.
 </details>
 
 <details>
-<summary><b>➕ Can I add more nodes?</b></summary>
+<summary><b>➕ How many nodes can I have?</b></summary>
 <br/>
-Yes! Just add entries to <code>agents.json</code>. Each node auto-detects its identity via hostname matching. A2A SSH Skill supports direct SSH connections, relay routing through intermediate nodes (A→B→C), and shared filesystem access (Windows host + its WSL).
+No limit. Add entries to <code>agents.json</code>. Supports direct SSH, relay routing (A→B→C), shared filesystem, and any mix of Windows/Linux/macOS.
 </details>
 
 <details>
 <summary><b>🔒 Is it secure?</b></summary>
 <br/>
-A2A SSH Skill inherits SSH's security model — all communication is encrypted. No additional ports need to be opened. No HTTP endpoints are exposed. The <code>--dangerously-skip-permissions</code> flag is used for non-interactive AI execution on remote nodes, which is an architectural necessity for headless agent operation, not a security bypass.
+Yes — inherits SSH's encryption. No HTTP endpoints exposed, no extra ports opened. The <code>--dangerously-skip-permissions</code> flag enables non-interactive AI execution, which is architecturally required for headless operation.
 </details>
 
-## Contributing
+---
 
-Contributions are welcome! Whether it's bug reports, feature requests, documentation improvements, or code contributions.
+## 🤝 Contributing
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+Contributions welcome! Bug reports, feature requests, docs, code — all appreciated.
 
-## License
+1. Fork → 2. Branch → 3. Commit → 4. Push → 5. PR
+
+---
+
+## 📄 License
 
 [MIT](LICENSE) — use it however you want.
 
@@ -497,9 +456,12 @@ Contributions are welcome! Whether it's bug reports, feature requests, documenta
 
 <div align="center">
   <br/>
-  <strong>If your agent can SSH, your agent can scale. 🚀</strong>
+  <b>If your agent can SSH, your agent can scale. 🚀</b>
   <br/><br/>
-  <sub>Not an official Google A2A implementation.<br/>Inspired by the <a href="https://github.com/a2aproject/A2A">Agent2Agent</a> vision, built for builders who need it working today.</sub>
+  <sub>
+    Not an official Google A2A implementation.<br/>
+    Inspired by the <a href="https://github.com/a2aproject/A2A">Agent2Agent</a> vision, built for builders who need it working today.
+  </sub>
   <br/><br/>
   <a href="https://github.com/YonganZhang/a2a-ssh-skill">⭐ Star this repo</a> if it saved you from deploying an HTTP server.
 </div>
