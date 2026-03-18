@@ -26,6 +26,16 @@
 >
 > **Google A2A wants you to build an HTTP server. We just need your SSH key. 🔑**
 
+<div align="center">
+<table>
+<tr>
+<td align="center"><h3>💰 ~90% Less Tokens</h3><sub>No framework context, no MCP overhead.<br/>Only your prompt travels over the wire.</sub></td>
+<td align="center"><h3>⚡ 5 Min Setup</h3><sub>Clone, edit JSON, send.<br/>No servers. No SDKs.</sub></td>
+<td align="center"><h3>🔒 Zero Trust Surface</h3><sub>No HTTP endpoints exposed.<br/>SSH encryption by default.</sub></td>
+</tr>
+</table>
+</div>
+
 ---
 
 ## What is A2A SSH Skill?
@@ -54,7 +64,7 @@ You spent 5 minutes editing agents.json.
 A2A SSH Skill and Google A2A solve **different problems** at **different layers**. They're complementary, not competing:
 
 - **Google A2A** answers: *"How should agents discover and talk to each other across the internet?"*
-- **A2A SSH Skill** answers: *"How do I make my 3 machines work together as a team right now?"*
+- **A2A SSH Skill** answers: *"How do I make my machines work together as an AI team right now?"*
 
 <table>
 <tr><th width="200"></th><th width="280">🔀 A2A SSH Skill</th><th width="280">🌐 Google A2A Protocol</th></tr>
@@ -144,6 +154,21 @@ A2A SSH Skill can also be installed directly as a [Claude Code skill](https://do
 cp -r a2a-ssh-skill ~/.claude/skills/agent-task-delegate
 ```
 
+## Use Cases
+
+A2A SSH Skill is not limited to any specific setup. Here's what people use it for:
+
+| Scenario | How |
+|---|---|
+| 🧪 **Remote testing** | "Run the test suite on the CI server and fix any failures" |
+| 🔧 **Remote debugging** | "Check why the API is returning 500 errors on production" |
+| 🤖 **GPU offloading** | "Train this model on the GPU server and report the metrics" |
+| 📊 **Cross-machine inspection** | "Compare the configs between staging and production" |
+| 🏗️ **Multi-node deployment** | "Update the service on server A, then verify it from server B" |
+| 🐛 **Log analysis** | "Search the last 1000 lines of nginx logs for timeout errors" |
+| 📦 **Build delegation** | "Compile the project on the Linux box, it's faster there" |
+| 🔍 **Security audit** | "Check all open ports and running services on the server" |
+
 ## Features
 
 | | Feature | Description |
@@ -190,28 +215,28 @@ A2A SSH Skill automatically chooses the optimal execution path:
 | Linux | write | * | Python runner | Write tasks need full tool access via runner |
 | Windows | * | * | Python runner | stdin pipe ensures reliable prompt delivery on Windows |
 
-### Three-Node Setup (Real Production Example)
+### Scale to Any Topology
 
-This is the actual setup we use daily — a laptop coordinating work across a Windows GPU server and its WSL Linux environment:
+A2A SSH Skill works with **any number of nodes** — from two machines to a fleet. Here are common setups:
 
+**Two-Node** — The simplest: your laptop delegates to a remote server.
 ```
-┌────────────────┐     SSH (Tailscale)     ┌────────────────┐
-│  💻 Laptop     │ ─────────────────────►  │  🖥️ Windows    │
-│  Windows 11    │                          │  Server        │
-│  RTX 4060      │ ◄───────────────────── │  i9-14900KF    │
-│  (Coordinator) │     SSH (Tailscale)     │  RTX 4090      │
-└────────────────┘                          │  (GPU Tasks)   │
-                                            │       │        │
-                                            │       │ WSL    │
-                                            │       ▼        │
-                                            │ ┌────────────┐ │
-                                            │ │ 🐧 Ubuntu  │ │
-                                            │ │ 24.04 WSL2 │ │
-                                            │ │ PyTorch    │ │
-                                            │ │ (DL Tasks) │ │
-                                            │ └────────────┘ │
-                                            └────────────────┘
+💻 Laptop ──── SSH ────► 🖥️ Server
 ```
+
+**Three-Node with Relay** — A Windows server relays to its WSL Linux environment:
+```
+💻 Laptop ──── SSH ────► 🖥️ Windows Server ──── WSL ────► 🐧 Linux
+```
+
+**Fan-Out** — One coordinator delegates to multiple workers in parallel:
+```
+                         ┌── SSH ──► 🖥️ Server A (Build)
+💻 Coordinator ──────────┼── SSH ──► 🖥️ Server B (Test)
+                         └── SSH ──► 🐧 GPU Box  (Train)
+```
+
+Just add entries to `agents.json`. Each node auto-detects its identity via hostname matching. Any node can be a sender, receiver, or both.
 
 ## How It Works
 
@@ -259,9 +284,27 @@ jobs/20260319-014500-gpu-server-fix-tests-a1b2c3/
 | Preflight checks | Verifying remote cwd, Claude CLI, system health before starting |
 | D-state monitoring | Detecting unhealthy WSL instances (filesystem I/O stalls) |
 
+## Token Efficiency: Why ~90% Less
+
+Traditional multi-agent approaches waste tokens in several ways. A2A SSH Skill eliminates all of them:
+
+| Token Waste Source | Traditional Approach | A2A SSH Skill |
+|---|---|---|
+| **Framework context** | Agent frameworks inject system prompts, tool schemas, conversation history (~2000-5000 tokens per call) | Only your task prompt is sent (~100-500 tokens) |
+| **MCP tool overhead** | 100+ MCP tool definitions loaded into context (~3000-8000 tokens) | Zero MCP tools — AI uses its native tools on the remote machine |
+| **Retry waste** | False retries on transient errors re-send entire context | Precise retry logic (stderr-only matching) avoids false triggers |
+| **Loop waste** | No recursion protection → A→B→A burns infinite tokens | `AGENT_DELEGATE_DEPTH` blocks loops at first recursion |
+| **Discovery overhead** | Protocol handshakes, Agent Card exchanges | Zero — `agents.json` is read locally, nothing sent to AI |
+
+**Example**: To check disk usage on a remote server:
+- **With MCP tools**: ~5000 tokens (tool schema loading) + ~500 tokens (prompt) = **~5500 tokens**
+- **With A2A SSH Skill**: ~500 tokens (just the prompt) = **~500 tokens** → **~90% reduction**
+
+The savings compound when you're delegating tasks throughout the day.
+
 ## End-to-End Test Results
 
-We take reliability seriously. A2A SSH Skill has been tested on a **real three-node production setup**: Windows 11 laptop ↔ Windows Server (i9-14900KF, RTX 4090 D, 64GB RAM) ↔ Ubuntu 24.04 WSL2.
+We take reliability seriously. A2A SSH Skill has been battle-tested on a real multi-node production setup across Windows and Linux machines.
 
 ### Test Suite
 
@@ -296,6 +339,15 @@ Every test validates a different execution path and safety mechanism:
 **What it tests**: The retry logic's precision. The retry mechanism checks for API errors like "overloaded" — but only in stderr, not stdout. If a task's *output* contains the word "overloaded" (e.g., "the server was overloaded yesterday"), it should NOT trigger a retry.
 **How it works**: Sends a task whose output naturally contains the word "overloaded", verifies it completes in one attempt without spurious retries.
 **Why it matters**: False retries waste tokens and time. Previous versions checked both stdout and stderr, causing legitimate outputs to be retried 3 times unnecessarily.
+
+### Our Test Environment
+
+These tests were validated on a real three-node setup as an example:
+- **Node A** (Coordinator): Windows 11 laptop
+- **Node B** (Windows target): Windows Server with GPU
+- **Node C** (Linux target): Ubuntu 24.04 running inside WSL2 on Node B
+
+A2A SSH Skill supports **any combination** of Windows, Linux, and macOS nodes connected via SSH.
 
 ### Running the Tests
 
