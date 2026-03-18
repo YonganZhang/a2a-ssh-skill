@@ -1,0 +1,47 @@
+{
+  "protocol_version": 2,
+  "agents": {
+    "laptop": {
+      "hostname_patterns": ["my-laptop"],
+      "platform": "windows",
+      "claude_path": "claude",
+      "python_path": "python",
+      "exchange_root": "C:/Users/me/agent-relay-exchange",
+      "job_root": "C:/Users/me/agent-relay-exchange/jobs",
+      "ssh_from": {
+        "win-server": "win-server-ssh",
+        "linux-wsl": "linux-wsl-ssh"
+      },
+      "relay_via": null,
+      "capabilities": ["coordination", "review"]
+    },
+    "win-server": {
+      "hostname_patterns": ["WIN-SERVER-*"],
+      "platform": "windows",
+      "claude_path": "C:/Users/Admin/AppData/Roaming/npm/claude.cmd",
+      "python_path": "D:/Python/python.exe",
+      "exchange_root": "E:/exchange",
+      "job_root": "E:/exchange/jobs",
+      "ssh_from": {
+        "laptop": "win-server-ssh"
+      },
+      "relay_via": null,
+      "capabilities": ["windows", "gpu", "relay"]
+    },
+    "linux-wsl": {
+      "hostname_patterns": ["wsl-*"],
+      "platform": "linux",
+      "claude_path": "/usr/local/bin/claude",
+      "python_path": "python3",
+      "exchange_root": "/mnt/e/exchange",
+      "job_root": "/mnt/e/exchange/jobs",
+      "ssh_from": {
+        "laptop": "linux-wsl-ssh",
+        "win-server": null
+      },
+      "relay_via": "win-server",
+      "wsl_distro": "Ubuntu-24.04",
+      "capabilities": ["linux", "python", "gpu", "deep-learning"]
+    }
+  }
+}

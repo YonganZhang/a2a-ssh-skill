@@ -1,0 +1,64 @@
+{
+  "protocol_version": 2,
+  "agents": {
+    "windows-server": {
+      "_comment_hostname_patterns": "Glob patterns matched against socket.gethostname() to auto-detect this agent",
+      "hostname_patterns": ["MY-WIN-SERVER"],
+
+      "_comment_platform": "Either 'windows' or 'linux' — determines path normalization and runner commands",
+      "platform": "windows",
+
+      "_comment_claude_path": "Absolute path to the Claude CLI binary on this node",
+      "claude_path": "C:/Users/MyUser/AppData/Roaming/npm/claude.cmd",
+
+      "_comment_python_path": "Python interpreter used to run the runner script on this node",
+      "python_path": "python",
+
+      "_comment_exchange_root": "Root directory for the exchange filesystem (used for archive path)",
+      "exchange_root": "D:/exchange",
+
+      "_comment_job_root": "Directory where job folders are created and looked up",
+      "job_root": "D:/exchange/jobs",
+
+      "_comment_ssh_from": "SSH host alias to reach this agent from another agent. null = same machine (e.g. local WSL)",
+      "ssh_from": {
+        "linux-server": "my-windows-host"
+      },
+
+      "_comment_relay_via": "If direct SSH fails, relay through this agent. null = no fallback relay",
+      "relay_via": null,
+
+      "_comment_capabilities": "Tags describing what this node can do (informational, stored in job metadata)",
+      "capabilities": [
+        "windows",
+        "coordination"
+      ]
+    },
+
+    "linux-server": {
+      "hostname_patterns": ["my-linux-*"],
+      "platform": "linux",
+      "claude_path": "/usr/local/bin/claude",
+      "python_path": "python3",
+      "exchange_root": "/mnt/d/exchange",
+      "job_root": "/mnt/d/exchange/jobs",
+
+      "_comment_ssh_from_null": "null means shared filesystem (e.g. WSL on the same machine as windows-server)",
+      "ssh_from": {
+        "windows-server": null
+      },
+
+      "_comment_relay_via_example": "If direct SSH from the caller fails, fall back to routing via this agent",
+      "relay_via": "windows-server",
+
+      "_comment_wsl_distro": "WSL distribution name — only needed when ssh_from value is null (local WSL access)",
+      "wsl_distro": "Ubuntu-24.04",
+
+      "capabilities": [
+        "linux",
+        "python",
+        "gpu"
+      ]
+    }
+  }
+}

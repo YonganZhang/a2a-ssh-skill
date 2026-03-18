@@ -1,0 +1,31 @@
+{
+  "protocol_version": 2,
+  "agents": {
+    "laptop": {
+      "hostname_patterns": ["my-laptop-*", "DESKTOP-*"],
+      "platform": "windows",
+      "claude_path": "claude",
+      "python_path": "python",
+      "exchange_root": "C:/Users/me/agent-relay-exchange",
+      "job_root": "C:/Users/me/agent-relay-exchange/jobs",
+      "ssh_from": {
+        "gpu-server": "laptop-ssh"
+      },
+      "relay_via": null,
+      "capabilities": ["coordination", "review"]
+    },
+    "gpu-server": {
+      "hostname_patterns": ["gpu-*", "server-*"],
+      "platform": "linux",
+      "claude_path": "/usr/local/bin/claude",
+      "python_path": "python3",
+      "exchange_root": "/home/user/agent-relay-exchange",
+      "job_root": "/home/user/agent-relay-exchange/jobs",
+      "ssh_from": {
+        "laptop": "gpu-server"
+      },
+      "relay_via": null,
+      "capabilities": ["linux", "python", "gpu"]
+    }
+  }
+}
